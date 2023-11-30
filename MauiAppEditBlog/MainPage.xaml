@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppEditBlog.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+
+            <Label
+                x:Name="DebugLabel"/>
+            <HorizontalStackLayout>
+                <Button 
+                    x:Name="ReloadCardsBtn"
+                    Text="Reload"
+                    Clicked="ReloadCardsButton_Clicked"/>
+                <Button 
+                    x:Name="AddCardButton"
+                    Text="Add a new card"
+                    Clicked="AddCardButton_Clicked" />
+            </HorizontalStackLayout>
+            <ListView
+                x:Name="CardsListView"
+                ItemsSource="{Binding Cards}"
+                ItemTapped="CardsListView_ItemTapped"
+                >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="70*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Row="0" Grid.Column="0" FontSize="Header" Text="{Binding Title}"/>
+                                    <Grid  Grid.Row="0" Grid.Column="1">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+                                        <Label  Grid.Row="0" Grid.Column="0" Text="{Binding Id}"/>
+                                        <Label  Grid.Row="1" Grid.Column="0" Text="{Binding Date}"/>
+                                    </Grid>
+                                </Grid>
+                                <Label Text="{Binding Text}"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppEditBlog.CardPage"
+             Title="CardPage">
+    <VerticalStackLayout>
+        <Label 
+            x:Name="IdLabel"
+            Text="{Binding Id}"
+            />
+        <DatePicker
+            x:Name="DataTimeDataPicker"
+            Date="{Binding Date}"
+            
+            />
+        <Editor
+            x:Name="TitleEditor"
+            Text="{Binding Title}"
+            TextChanged="TitleEditor_TextChanged"
+            />
+        <Editor
+            x:Name="TextEditor"
+            Text="{Binding Text}"
+            TextChanged="TextEditor_TextChanged"
+            />
+        <Editor
+            x:Name="LinksEditor"
+            Text="{Binding Links}"
+            
+            />
+        <Button
+            x:Name="SaveCardButton"
+            Text="Save and replace"
+            Clicked="SaveAndUpdateCardButton_Clicked"
+            />
+        <Button
+            x:Name="DeleteCardButton"
+            Text="Delete this card"
+            Clicked="DeleteCardButton_Clicked"
+            />
+
+    </VerticalStackLayout>
+</ContentPage>
